@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import JMap from './map';
 
 import '../assets/css/app.css'
 import 'react-datepicker/dist/react-datepicker.css';
@@ -80,6 +81,7 @@ class Story extends Component {
                 <option value="stalking">stalking</option>
             </select> <br /><br /><br /><br />
           </div>
+          <div className="firstFormLine">
               <a>The incident occurred at </a>
             <select name="location_type" id="location_type" value={this.state.location_type} onChange={this.handleChange}>
                 <option selected disabled hidden value=''></option>
@@ -90,18 +92,23 @@ class Story extends Component {
               <option value="home">home</option>
           </select>
           <a>in zip code</a>
-          <input type="text" name="zip" onChange={this.handleChange} placeholder="00000" className="zipInput"/>
-          <a>, specifically at </a>
-          <input type="text" name="location" onChange={this.handleChange} className="locationInput" placeholder="location name"/>
-          <a>. I believe it was driven by my gender and I identify as </a>          
-          <select name="gender" id="gender"  value={this.state.gender} onChange={this.handleChange}>
+          <input type="text" name="zip" onChange={this.handleChange} placeholder="00000" className="zipInput"/><a>,</a>
+        </div>
+        <div className="firstFormLine">
+          <a>specifically at </a>
+          <br /><br />
+          <input type="text" name="location" onChange={this.handleChange} className="locationInput" placeholder="location name"/>.
+        </div>          
+          <div className="firstFormLine">
+            <a>I believe it was driven by my gender and I identify as</a> 
+          <select name="gender" id="gender"  value={this.state.gender} onChange={this.handleChange} className="genderSelect">
               <option selected disabled hidden value=''></option>
               <option value="female">female</option>
               <option value="male">male</option>
               <option value="other">other</option>
               <option value="neither">neither</option>
           </select>
-          <a>. I </a>
+          <a>I </a>
           <select name="knowAssailant" id="knowAssailant"  value={this.state.knowAssailant} onChange={this.handleChange}
             className="formSelect">
               <option selected disabled hidden value=''></option>
@@ -111,7 +118,9 @@ class Story extends Component {
           <a> my assailant.
           { (knownAssailant === 'true') ? 
             <span><label>Their name is </label> <input type="text" name="assailant_name" onChange={this.handleChange}/></span> : <span/>}
-          . I</a>
+          .</a>
+          </div>
+          <a> I</a>
           <select name="hasBeenReported"  value={this.state.hasBeenReported} onChange={this.handleChange}>
               <option selected disabled hidden value=''></option>
               <option value="true">have</option>
@@ -122,8 +131,11 @@ class Story extends Component {
 
               <div><input type="submit" value="Tell My Story" /></div>
               </label>
-          </form>
+          </form>      
         </div>
+        <div className="mapDiv">
+          <JMap />
+        </div>  
 
       </div>
     );
