@@ -27,16 +27,16 @@ class Story extends Component {
     object[key] = value;
     console.log(key)
     this.setState(object);
+    
     fetch('http://52.53.201.52:5000/api/newstory', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        experience_type: this.state.event_type,
-        })
-    }).then((response)=>{
+      body:
+        {experience_type: this.state.event_type}    
+      }).then((response)=>{
       console.log(response);
     })
   }
