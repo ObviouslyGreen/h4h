@@ -5,7 +5,7 @@ const router = express.Router();
 const knex = require('../knex');
 
 router.get('/api', (req, res, next) => {
-  res.send('Hello World');
+  res.send(process.env.DB_CONNECTION);
   // knex('items')
   // .then((items) => {
   //   knex('images')
