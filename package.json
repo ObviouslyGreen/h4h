@@ -8,7 +8,7 @@
     "express": "^4.16.2",
     "express-fileupload": "^0.3.0",
     "knex": "^0.13.0",
-    "moment": "^2.19.1",
+    "nodemon": "^1.12.1",
     "pg": "^7.3.0",
     "react": "^16.0.0",
     "react-datepicker": "^0.56.0",

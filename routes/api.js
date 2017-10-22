@@ -6,23 +6,14 @@ const knex = require('../knex');
 
 router.get('/api', (req, res, next) => {
   res.send(process.env.DB_CONNECTION);
-  // knex('items')
-  // .then((items) => {
-  //   knex('images')
-  //   .then((images) => {
-  //     knex('artists')
-  //     .then((artists) => {
-  //       res.render('pages/items', {
-  //         data: items,
-  //         data2: images,
-  //         data3: artists
-  //       });
-  //     })
-  //   })
-  // })
-  // .catch((err) => {
-  //   next(err);
-  // });
+  knex('stories')
+  .then((stories) => {
+    console.log('knex stories!');
+    res.send(stories);
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
 
