@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import '../assets/css/app.css';
@@ -73,7 +74,9 @@ class JMap extends Component {
         zoom: 16
       },
       heatmap
-    })
+    });
+    const node = ReactDOM.findDOMNode(this.state.map);
+    node.scrollIntoView({ behavior: "smooth" });
   }
 
   render() {
@@ -81,7 +84,10 @@ class JMap extends Component {
 
     return (
       <div className="Map-container">
-        <Map {...viewport} >
+        <Map
+        {...viewport}
+        ref={(map) => { this.state.map = map; }}
+        >
         <TileLayer
           url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>' />
