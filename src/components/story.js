@@ -137,7 +137,15 @@ class Story extends Component {
         <div className="mapDiv">
           <JMap ref={map => { this.state.map = map; }} />
         </div>
-
+        <div className="aboutDiv">
+          <h3 className="aboutTitle">Let your community hear your voice</h3>
+          <p className="aboutBody">
+            J.Doe was developed by five tech dreamers. They come from different races, religions, and backgrounds and through those lived experiences had seen many problems in the world. They wanted to make a difference. The result is J.Doe - a place for survivors to report incidences of abuse and crime based on their sex or gender.
+            <br/>
+            <br/>
+            The purpose of J.Doe is two-fold. First, it is a place for survivors to share their story and be heard. The incident can be kept anonymous or the reporter can identify themselves to assist in police intervention. Survivors and allies also have access to community resources that can help with the emotional and physical repercussions of the crime committed. The second goal is to provide accurate data that can be used by local authorities and organizations to engage, educate, and improve the community.
+          </p>
+        </div>
       </div>
     );
   }
