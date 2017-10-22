@@ -33,7 +33,9 @@ class Story extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: {experience_type: this.state.event_type}
+      body: JSON.stringify({
+        experience_type: this.state.event_type,
+  })
     }).then((response)=>{
       console.log(response);
     })
