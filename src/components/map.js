@@ -14,7 +14,7 @@ class JMap extends Component {
         zoom: 13
       },
       heatmap: {
-        points: []
+        points: [[32.7157, -117.1611], '5']
       }
     }
   }
@@ -38,11 +38,13 @@ class JMap extends Component {
         }
       }
       console.log(points);
-      this.setState({
-        heatmap: {
-          points: points
-        }
-      });
+      if (points.length > 0) {
+        this.setState({
+          heatmap: {
+            points: points
+          }
+        });
+      }
     });
   }
 
