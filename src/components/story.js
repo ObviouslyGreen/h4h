@@ -49,17 +49,24 @@ class Story extends Component {
 
   render() {
     const knownAssailant = this.state.knowAssailant;
-    const selectStyle = {
-      border: 0,
-      outline: 0,
-    };
     return (
-      <div>
+      <div className="pageContainer">
+        <div className="content">
+          <div className="header">
+            <button className="logoText">J. Doe</button>
+            <button className="menuItems">tell my story</button>
+            <button className="menuItems">explore map</button>
+            <button className="menuItems">about</button>
+            <button className="menuItems">community support</button>
+          </div>
           <form onSubmit={this.handleSubmit}>
           <label>
-          On <DatePicker name="event_date" selected={this.state.startDate}/>, I experienced/witnessed an incident of 
-          <select name="experience_type" id="experience_type"  style={selectStyle}  value={this.state.experience_type} onChange={this.handleChange}>
-                <option selected disabled hidden value=''></option>
+            <div className="firstFormLine">
+          <a>On</a> <div className="datepickerdiv"><DatePicker name="event_date" selected={this.state.startDate} className="chooseDate"/></div><a>, I experienced/witnessed an incident of</a> 
+          <select name="experience_type" id="experience_type"
+              className="formSelect"
+               value={this.state.experience_type} onChange={this.handleChange}>
+                <option selected disabled value='__________'></option>
                 <option value="harrassment">harrassment</option>
                 <option value="assault"> assault</option>
                 <option value="sexual assault">sexual assault</option>
@@ -71,32 +78,41 @@ class Story extends Component {
                 <option value="emotional abuse">emotional abuse</option>
                 <option value="human trafficking">human trafficking</option>
                 <option value="stalking">stalking</option>
-            </select>. The incident occurred at 
-            <select name="location_type" id="location_type" style={selectStyle} value={this.state.location_type} onChange={this.handleChange}>
-              <option selected disabled hidden value=''></option>
+            </select> <br /><br /><br /><br />
+          </div>
+              <a>The incident occurred at </a>
+            <select name="location_type" id="location_type" value={this.state.location_type} onChange={this.handleChange}>
+                <option selected disabled hidden value=''></option>
               <option value="school/college">school/college</option>
               <option value="work">work</option>
               <option value="park">a public park</option>
               <option value="social gathering">a social gathering</option>
               <option value="home">home</option>
-          </select> in zip code <input type="text" name="zip" onChange={this.handleChange}/>, specifically at <input type="text" name="location" onChange={this.handleChange}/>. I believe it was driven by my gender 
-          and I identify as           
-          <select name="gender" id="gender" style={selectStyle} value={this.state.gender} onChange={this.handleChange}>
+          </select>
+          <a>in zip code</a>
+          <input type="text" name="zip" onChange={this.handleChange} placeholder="00000" className="zipInput"/>
+          <a>, specifically at </a>
+          <input type="text" name="location" onChange={this.handleChange} className="locationInput" placeholder="location name"/>
+          <a>. I believe it was driven by my gender and I identify as </a>          
+          <select name="gender" id="gender"  value={this.state.gender} onChange={this.handleChange}>
               <option selected disabled hidden value=''></option>
               <option value="female">female</option>
               <option value="male">male</option>
               <option value="other">other</option>
               <option value="neither">neither</option>
-          </select>. I 
-          <select name="knowAssailant" id="knowAssailant" style={selectStyle} value={this.state.knowAssailant} onChange={this.handleChange}>
+          </select>
+          <a>. I </a>
+          <select name="knowAssailant" id="knowAssailant"  value={this.state.knowAssailant} onChange={this.handleChange}
+            className="formSelect">
               <option selected disabled hidden value=''></option>
               <option value="false">do not know</option>
               <option value="true">know</option>
-          </select> my assailant. { (knownAssailant === 'true') ? 
-            <span><label>Their name is </label> <input type="text" name="assailant_name" onChange={this.handleChange}/></span> : <span/>}. 
-
-
-          I <select name="hasBeenReported" style={selectStyle} value={this.state.hasBeenReported} onChange={this.handleChange}>
+          </select>
+          <a> my assailant.
+          { (knownAssailant === 'true') ? 
+            <span><label>Their name is </label> <input type="text" name="assailant_name" onChange={this.handleChange}/></span> : <span/>}
+          . I</a>
+          <select name="hasBeenReported"  value={this.state.hasBeenReported} onChange={this.handleChange}>
               <option selected disabled hidden value=''></option>
               <option value="true">have</option>
               <option value="false">have not</option>
@@ -107,6 +123,8 @@ class Story extends Component {
               <div><input type="submit" value="Tell My Story" /></div>
               </label>
           </form>
+        </div>
+
       </div>
     );
   }

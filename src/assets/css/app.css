@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Allura|Patrick+Hand|Lato|Parisienne');
+
 .HelloWorld {
   text-align: center;
 }
@@ -41,4 +43,114 @@
 .leaflet-container {
   height: 480px;
   width: 100%;
+}
+.pageContainer {
+  height: 480px;
+  width: 100%;
+  background-color: #0E273A;
+
+}
+.content{
+  width: 1000px;
+  margin: auto;
+}
+.header{
+  height: 100px;
+  background-color: #79A8BF;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.logoText{
+  font-family: 'Parisienne', cursive;
+  color: #0D3148;
+  opacity: 0.85;
+  font-size: 32pt;
+  font-weight: 400;
+  background-color: #79A8BF;
+  border: 0px;
+  border-bottom: 5px solid white;
+  padding-left: 25px;
+}
+.menuItems{
+  font-family: 'Patrick Hand';
+  font-size: 16pt;
+  background-color: #79A8BF;
+  border: 0px;
+  border-bottom: 5px solid white;
+  flex: 1;
+  color: white;
+}
+.menuItems:hover{
+  border-bottom: 5px solid #0E273A;
+  color: #0D3148;
+  opacity: 0.85;
+}
+.activeMenuItem{
+  border-bottom: 5px solid #0E273A;
+  color: #0D3148;
+  opacity: 0.85;
+}
+form{
+  color: white;
+  float:left;
+  font-family: 'Lato';
+  font-size: 18pt;
+  margin-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  letter-spacing: 1px;
+  /*text-align: justify;*/
+
+}
+form a{
+  float: left;
+  margin-right: 5px;
+}
+form select, .formSelect, form input{
+  float:left;
+  display: inline;
+  max-width: 240px;
+  height: auto;
+  background-color: #0E273A;
+  color: white;
+  border: 0px;
+  font-family: 'Lato';
+  font-size: 18pt;
+  border-bottom: 1px solid white; 
+  border-radius: 0px;
+  margin-left: 3px;
+  margin-right: 3px;
+  line-height: 34pt;
+}
+.formSelect{
+  width: 320px !important;
+  max-width: 500px !important;
+}
+.chooseDate, .datepickerdiv{
+  float:left;
+  display: inline;
+  width: 130px;
+  max-height: 40px;
+  height: auto;
+  background-color: #0E273A;
+  color: white;
+  border: 0px;
+  font-family: 'Lato';
+  font-size: 18pt;
+}
+.firstFormLine{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.zipInput{
+  width: 75px;
+  margin-top:-10px;
+}
+.locationInput{
+  line-height:32px;
+  height: 30px;
+  width: 50px;
 }
