@@ -14,7 +14,7 @@ class JMap extends Component {
         zoom: 13
       },
       heatmap: {
-        points: [[32.7157, -117.1611], '5']
+        points: [[32.7157, -117.1611, '5']]
       }
     }
   }
