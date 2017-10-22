@@ -161,6 +161,12 @@ form select, .formSelect, form input{
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+}
+.firstFormLine2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
 }
 .zipInput{
@@ -173,13 +179,18 @@ form select, .formSelect, form input{
   max-width: 700px;
   width: 700px;
 }
-.mapDiv::after{
+.mapDiv{
+  margin-top: 50px;
   width: 100vw;
   padding-top: 50px;
+  padding-bottom: 50px;
   clear: both;
   background-image: url('../ocean.jpeg');
+  background-blend-mode: screen;
   background-size: cover;
   opacity: 0.9;
+  padding-top: 50px;
+  clear: both;
 }
 body{
   background-color: #0E273A;
@@ -195,4 +206,29 @@ textarea::placeholder{
 }
 .submitButton{
   float: right;
+}
+.aboutDiv{
+  clear: both;
+  float: left;
+}
+.aboutTitle{
+  padding-left: 64px;
+  font-family: 'Patrick Hand';
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
+.aboutBody{
+  font-family: 'Lato';
+  color: white;
+  font-size: 18px;
+  text-align: justify;
+  width: 80%;
+  margin: 0 auto;
+  line-height: 24px;
+}
+.whiteHr{
+  width: 100vw;
+  height: 5px;
+  color: white;
 }

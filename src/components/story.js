@@ -80,7 +80,7 @@ class Story extends Component {
                   <option value="emotional abuse">emotional abuse</option>
                   <option value="human trafficking">human trafficking</option>
                   <option value="stalking">stalking</option>
-                </select> <br /><br /><br />
+                </select> <br /><br />
               </div>
               
               <div className="firstFormLine">
@@ -94,13 +94,15 @@ class Story extends Component {
                   <option value="home">home</option>
                 </select>
                 <a>in zip code</a>
-                <input type="text" name="zip" onChange={this.handleChange} placeholder="00000" className="zipInput"/><a>,</a>
+                <input type="text" name="zip" onChange={this.handleChange}  className="zipInput"/><a>,</a>
+                <br /><br />
               </div>
               
               <div className="firstFormLine">
                 <a>specifically at </a>
                 <br /><br />
-                <input type="text" name="location" onChange={this.handleChange} className="locationInput" placeholder="location name"/>.
+                <input type="text" name="location" onChange={this.handleChange} className="locationInput" />.
+                <br /><br />
               </div>    
               
               <div className="firstFormLine">
@@ -112,6 +114,7 @@ class Story extends Component {
                   <option value="other">other</option>
                   <option value="neither">neither</option>
                 </select>
+                <br /><br />
               </div>
               
               <div className="firstFormLine">
@@ -138,7 +141,7 @@ class Story extends Component {
               
               <br />
               
-              <div className="firstFormLine">
+              <div className="firstFormLine2">
               <textarea id = "story" rows = "3" cols = "80" onChange={this.handleChange} placeholder="My full story..." className="fullStoryInput"></textarea>
               </div>
               
@@ -146,9 +149,8 @@ class Story extends Component {
               <div><input type="submit" value="Tell My Story" className="submitButton"/></div>
               
             </label>
-          </form>      
+          </form> 
         </div>
-        
         <div className="mapDiv">
           <JMap ref={map => { this.state.map = map; }} />
         </div>
