@@ -19,12 +19,6 @@ class Story extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(date) {
-    this.setState({
-      startDate: date
-    });
-  }
-
   handleChange(event) {
     console.log(event.target.id);
     let key = event.target.id;
