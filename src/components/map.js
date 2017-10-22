@@ -12,8 +12,8 @@ class Map extends Component {
       zoom: 11,
       bearing: 0,
       pitch: 0,
-      width: 1280,
-      height: 720
+      // width: 1280,
+      // height: 720
     },
     settings: {
       dragPan: true,
@@ -35,7 +35,7 @@ class Map extends Component {
     const {viewport, settings} = this.state;
 
     return (
-      <ReactMapGL
+      <ReactMapGL className="Map-container"
         {...viewport}
         {...settings}
         mapStyle='mapbox://styles/mapbox/light-v9'
