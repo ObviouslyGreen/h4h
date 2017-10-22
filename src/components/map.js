@@ -33,8 +33,9 @@ class JMap extends Component {
       for (let i = 0; i < data.length; i++) {
         let lat = parseFloat(data[i].latitude);
         let long = parseFloat(data[i].longitude);
+        let severity = parseFloat(data[i].severity);
         if (!isNaN(lat) && !isNaN(long)) {
-          points.push([lat, long, '5']);
+          points.push([lat, long, severity]);
         }
       }
       console.log(points);
@@ -58,10 +59,11 @@ class JMap extends Component {
           url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>' />
         <HeatmapLayer
+         fitBoundsOnChange
           points={heatmap.points}
           longitudeExtractor={m => m[1]}
           latitudeExtractor={m => m[0]}
-          intensityExtractor={m => parseFloat(m[2])} />
+          intensityExtractor={m => m[2]} />
         </Map>
       </div>
       );
