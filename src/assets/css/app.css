@@ -34,6 +34,11 @@
 }
 .Button{
   background-color: orange;
-  width: 50px; 
+  width: 50px;
   height: 50px;
+}
+
+.leaflet-container {
+  height: 480px;
+  width: 100%;
 }
