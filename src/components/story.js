@@ -12,7 +12,7 @@ class Story extends Component {
     this.state = {
       startDate: moment(),
       gender: 'male',
-      knowAssailant: true
+      knowAssailant: 'false'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -49,48 +49,64 @@ class Story extends Component {
 
   render() {
     const knownAssailant = this.state.knowAssailant;
+    const selectStyle = {
+      border: 0,
+      outline: 0,
+    };
     return (
       <div>
           <form onSubmit={this.handleSubmit}>
           <label>
-          On <DatePicker selected={this.state.startDate}/>, I experienced/witnessed an incident of 
-          <select name="event_type" id="event_type" value={this.state.event_type} onChange={this.handleChange}>
+          On <DatePicker name="event_date" selected={this.state.startDate}/>, I experienced/witnessed an incident of 
+          <select name="experience_type" id="experience_type"  style={selectStyle}  value={this.state.experience_type} onChange={this.handleChange}>
+                <option selected disabled hidden value=''></option>
                 <option value="harrassment">harrassment</option>
                 <option value="assault"> assault</option>
                 <option value="sexual assault">sexual assault</option>
                 <option value="workplace harassment">workplace harassment</option>
                 <option value="micro-aggeression">micro-aggeression</option>
-            </select>. The incident occurred at <input type="text" name="location" onChange={this.handleChange}/>, which is a 
-          <select name="location_type" id="location_type" value={this.state.location_type} onChange={this.handleChange}>
+                <option value="discriminatory pay">discriminatory pay</option>
+                <option value="domestic violence">domestic violence</option>
+                <option value="dating violence">dating violence</option>
+                <option value="emotional abuse">emotional abuse</option>
+                <option value="human trafficking">human trafficking</option>
+                <option value="stalking">stalking</option>
+            </select>. The incident occurred at 
+            <select name="location_type" id="location_type" style={selectStyle} value={this.state.location_type} onChange={this.handleChange}>
+              <option selected disabled hidden value=''></option>
               <option value="school/college">school/college</option>
               <option value="work">work</option>
-              <option value="park">public park</option>
-              <option value="social gathering">social gathering</option>
+              <option value="park">a public park</option>
+              <option value="social gathering">a social gathering</option>
               <option value="home">home</option>
-          </select>. 
-
-          I believe it was driven by my gender and I identify as           
-          <select name="gender" id="gender" value={this.state.gender} onChange={this.handleChange}>
+          </select> in zip code <input type="text" name="zip" onChange={this.handleChange}/>, specifically at <input type="text" name="location" onChange={this.handleChange}/>. I believe it was driven by my gender 
+          and I identify as           
+          <select name="gender" id="gender" style={selectStyle} value={this.state.gender} onChange={this.handleChange}>
+              <option selected disabled hidden value=''></option>
               <option value="female">female</option>
               <option value="male">male</option>
               <option value="other">other</option>
               <option value="neither">neither</option>
           </select>. I 
-          <select name="knowAssailant" id="knowAssailant" value={this.state.knowAssailant} onChange={this.handleChange}>
-              <option value="true">know</option>
+          <select name="knowAssailant" id="knowAssailant" style={selectStyle} value={this.state.knowAssailant} onChange={this.handleChange}>
+              <option selected disabled hidden value=''></option>
               <option value="false">do not know</option>
-          </select> my assailant.
-          I <b>{knownAssailant ? 'know' : 'do not know'}</b> logged in.
-          I <select value={this.state.reported} onChange={this.handleChange}>
+              <option value="true">know</option>
+          </select> my assailant. { (knownAssailant === 'true') ? 
+            <span><label>Their name is </label> <input type="text" name="assailant_name" onChange={this.handleChange}/></span> : <span/>}. 
+
+
+          I <select name="hasBeenReported" style={selectStyle} value={this.state.hasBeenReported} onChange={this.handleChange}>
+              <option selected disabled hidden value=''></option>
               <option value="true">have</option>
               <option value="false">have not</option>
-          </select> report this to the authorities.  
-              <input type="submit" value="Tell myasdfasd story" />
+          </select> reported this to the authorities.  
+
+        My story.. <textarea id = "story" rows = "3" cols = "80" onChange={this.handleChange}></textarea>
+
+              <div><input type="submit" value="Tell My Story" /></div>
               </label>
           </form>
-          <a>{this.state.gender}</a>
-          <a>{this.state.event_type}</a>
-          <a>{this.state.location_type}</a>
       </div>
     );
   }
