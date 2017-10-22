@@ -29,7 +29,7 @@ class JMap extends Component {
     }).then((response)=>{
       return response.json();
     }).then((data) => {
-      let points = [[]];
+      let points = [];
       for (let i = 0; i < data.length; i++) {
         let lat = parseFloat(data[i].latitude);
         let long = parseFloat(data[i].longitude);
