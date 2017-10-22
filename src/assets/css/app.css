@@ -26,3 +26,9 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Map-container {
+  width: 720px;
+  height: 480px;
+  margin:0px auto;
+}
