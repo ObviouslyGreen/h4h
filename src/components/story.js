@@ -44,8 +44,9 @@ class Story extends Component {
 
 
   handleSubmit(event) {
-    alert('story was submitted:');
-
+    event.preventDefault();
+    this.state.map.addMarker(32.7147, -117.1611);
+    console.log('story was submitted:');
   }
 
   render() {
@@ -63,7 +64,7 @@ class Story extends Component {
           <form onSubmit={this.handleSubmit}>
           <label>
             <div className="firstFormLine">
-          <a>On</a> <div className="datepickerdiv"><DatePicker name="event_date" selected={this.state.startDate} className="chooseDate"/></div><a>, I experienced/witnessed an incident of</a> 
+          <a>On</a> <div className="datepickerdiv"><DatePicker name="event_date" selected={this.state.startDate} className="chooseDate"/></div><a>, I experienced/witnessed an incident of</a>
           <select name="experience_type" id="experience_type"
               className="formSelect"
                value={this.state.experience_type} onChange={this.handleChange}>
@@ -98,9 +99,9 @@ class Story extends Component {
           <a>specifically at </a>
           <br /><br />
           <input type="text" name="location" onChange={this.handleChange} className="locationInput" placeholder="location name"/>.
-        </div>          
+        </div>
           <div className="firstFormLine">
-            <a>I believe it was driven by my gender and I identify as</a> 
+            <a>I believe it was driven by my gender and I identify as</a>
           <select name="gender" id="gender"  value={this.state.gender} onChange={this.handleChange} className="genderSelect">
               <option selected disabled hidden value=''></option>
               <option value="female">female</option>
@@ -116,7 +117,7 @@ class Story extends Component {
               <option value="true">know</option>
           </select>
           <a> my assailant.
-          { (knownAssailant === 'true') ? 
+          { (knownAssailant === 'true') ?
             <span><label>Their name is </label> <input type="text" name="assailant_name" onChange={this.handleChange}/></span> : <span/>}
           .</a>
           </div>
@@ -125,17 +126,17 @@ class Story extends Component {
               <option selected disabled hidden value=''></option>
               <option value="true">have</option>
               <option value="false">have not</option>
-          </select> reported this to the authorities.  
+          </select> reported this to the authorities.
 
         My story.. <textarea id = "story" rows = "3" cols = "80" onChange={this.handleChange}></textarea>
 
               <div><input type="submit" value="Tell My Story" /></div>
               </label>
-          </form>      
+          </form>
         </div>
         <div className="mapDiv">
-          <JMap />
-        </div>  
+          <JMap ref={map => { this.state.map = map; }} />
+        </div>
 
       </div>
     );

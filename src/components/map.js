@@ -63,9 +63,17 @@ class JMap extends Component {
   }
 
   addMarker = (lat, long) => {
-    const {markers} = this.state
+    const {markers, heatmap} = this.state
     markers.push([lat, long])
-    this.setState({markers})
+    heatmap.points.push([lat, long, '5'])
+    this.setState({
+      markers,
+      viewport: {
+        center: [lat, long],
+        zoom: 16
+      },
+      heatmap
+    })
   }
 
   render() {
